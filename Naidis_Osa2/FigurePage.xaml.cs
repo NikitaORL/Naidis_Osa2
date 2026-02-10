@@ -57,13 +57,31 @@ public partial class FigurePage : ContentPage
             HorizontalOptions = LayoutOptions.Center
         };
 
-        TapGestureRecognizer tap_kolmnurk = new TapGestureRecognizer();
-        pall.GestureRecognizers.Add(tap_kolmnurk);
-        tap_kolmnurk.Tapped += (sender, e) =>
+        TapGestureRecognizer tapPall = new TapGestureRecognizer();
+        pall.GestureRecognizers.Add(tapPall);
+        tapPall.Tapped += (sender, e) =>
+        {
+            int newR = rnd.Next(256);
+            int newG = rnd.Next(256);
+            int newB = rnd.Next(256);
+            pall.Fill = new SolidColorBrush(Color.FromRgb(newR, newG, newB));
+        };
+
+        // Для двойного нажатия на круг
+        TapGestureRecognizer doubleTapPall = new TapGestureRecognizer
+        {
+            NumberOfTapsRequired = 2  // это двойное нажатие
+        };
+        pall.GestureRecognizers.Add(doubleTapPall);
+        doubleTapPall.Tapped += (sender, e) =>
         {
 
+            int newR = rnd.Next(256);
+            int newG = rnd.Next(256);
+            int newB = rnd.Next(256);
+            pall.Stroke = Color.FromRgb(newR, newG, newB);
         };
-       
+
 
 
         // Polygon kasutamine
@@ -82,7 +100,7 @@ public partial class FigurePage : ContentPage
             VerticalOptions = LayoutOptions.Center
         };
 
-
+        TapGestureRecognizer tap_kolmnurk = new TapGestureRecognizer();
         kolmnurk.GestureRecognizers.Add(tap_kolmnurk);
         tap_kolmnurk.Tapped += (sender, e) =>
         {
