@@ -13,7 +13,7 @@ public partial class StartPage : ContentPage
 	public StartPage()
 	{
 		Title = "Avaleht";
-		vst = new VerticalStackLayout { Padding = 20, Spacing = 15 }; //Растояние межлу обьектаим и тд
+		vst = new VerticalStackLayout { Padding = 20, Spacing = 15 }; //Растояние между обьектаим и тд
 		for (int i = 0; i < Lehed.Count; i++)
 		{
 			Button nupp = new Button
